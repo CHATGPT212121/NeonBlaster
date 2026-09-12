@@ -1,0 +1,15 @@
+# Dependencies - NEVER push this
+node_modules/
+
+# Build output - NEVER push this, use Releases instead
+dist/
+out/
+*.exe
+
+# Logs and env
+*.log
+.env
+
+# OS junk
+.DS_Store
+Thumbs.db
