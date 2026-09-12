@@ -4,7 +4,7 @@ function createWindow() {
   const win = new BrowserWindow({
     fullscreen: true,
     title: 'NEON BLASTER',
-    backgroundColor: '#050510',
+    backgroundColor: '#060b18',
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true
