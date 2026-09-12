@@ -732,6 +732,92 @@
     background:rgba(245,166,35,.07)!important;box-shadow:none!important;}
   #controls-hint{color:var(--sc-micro);}
 
+
+  /* ============================================================
+     SC-LOBBY v2 — concept layout: rail / stage / side / footer
+     ============================================================ */
+  #overlay.lobby{
+    display:grid;grid-template-columns:248px 1fr 300px;grid-template-rows:1fr auto;
+    gap:12px;padding:18px 20px 12px;align-items:stretch;justify-items:stretch;
+  }
+  #overlay.lobby .sc-rail,#overlay.lobby .sc-side,#overlay.lobby .sc-foot{pointer-events:all;}
+  .sc-rail{grid-column:1;grid-row:1;display:flex;flex-direction:column;min-height:0;}
+  .sc-eyebrow{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:2.5px;color:var(--sc-amber);}
+  .sc-title{font-family:'Exo 2','Rajdhani',sans-serif;font-weight:300;font-size:42px;line-height:1.02;
+    letter-spacing:6px;color:var(--sc-ice-hi);margin:8px 0 10px;
+    text-shadow:0 0 24px rgba(87,199,212,.3);}
+  .sc-rule{height:3px;width:120px;background:linear-gradient(90deg,var(--sc-amber),transparent);margin-bottom:14px;}
+  .sc-menu{display:flex;flex-direction:column;gap:8px;}
+  .sc-item{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;
+    padding:9px 14px 9px 16px;border:1px solid rgba(215,230,245,.2);border-left:3px solid var(--sc-teal-dim);
+    background:rgba(10,20,40,.6);color:var(--sc-ice);cursor:pointer;
+    font-family:'Exo 2','Rajdhani',sans-serif;transition:all .15s ease;position:relative;}
+  .sc-item small{font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:2px;color:var(--sc-micro);}
+  .sc-item span{font-size:16px;font-weight:600;letter-spacing:3px;}
+  .sc-item:hover{border-color:var(--sc-teal);background:rgba(87,199,212,.1);}
+  .sc-item.is-active{border-color:rgba(215,230,245,.35);border-left:3px solid var(--sc-amber);
+    background:rgba(245,166,35,.08);}
+  .sc-item.is-active span{color:var(--sc-amber);}
+  .sc-item.sc-primary{border-color:var(--sc-amber);background:rgba(245,166,35,.12);}
+  .sc-item.sc-primary span{color:var(--sc-amber);}
+  .sc-item.sc-primary small{color:var(--sc-amber);}
+  .sc-item.sc-primary:hover{background:var(--sc-amber);}
+  .sc-item.sc-primary:hover span,.sc-item.sc-primary:hover small{color:#231600;}
+  .sc-railfoot{margin-top:auto;padding-top:10px;font-family:'Share Tech Mono',monospace;
+    font-size:8px;letter-spacing:2px;color:var(--sc-micro);}
+  .sc-stage{grid-column:2;grid-row:1;position:relative;pointer-events:none;
+    display:flex;align-items:flex-end;justify-content:center;}
+  .sc-status{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:2.5px;
+    color:var(--sc-teal);text-shadow:0 0 10px rgba(87,199,212,.6);padding-bottom:6px;white-space:nowrap;}
+  .sc-side{grid-column:3;grid-row:1;display:flex;flex-direction:column;gap:10px;min-height:0;}
+  .sc-card{border:1px solid rgba(215,230,245,.22);background:rgba(8,16,32,.72);
+    backdrop-filter:blur(6px);padding:12px 14px;position:relative;}
+  .sc-card::before,.sc-card::after{content:'';position:absolute;width:12px;height:12px;pointer-events:none;}
+  .sc-card::before{top:-1px;left:-1px;border-top:2px solid var(--sc-amber);border-left:2px solid var(--sc-amber);}
+  .sc-card::after{bottom:-1px;right:-1px;border-bottom:2px solid var(--sc-amber);border-right:2px solid var(--sc-amber);}
+  .sc-kicker{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:2.5px;
+    color:var(--sc-micro);margin-bottom:8px;}
+  .sc-callsign{font-family:'Exo 2',sans-serif;font-size:20px;font-weight:600;letter-spacing:2px;
+    color:var(--sc-ice-hi);margin-bottom:8px;}
+  .sc-prow{display:flex;justify-content:space-between;align-items:baseline;
+    padding:3px 0;border-top:1px solid rgba(215,230,245,.1);}
+  .sc-prow span{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--sc-micro);}
+  .sc-prow b{font-family:'Exo 2',sans-serif;font-size:13px;font-weight:600;letter-spacing:1px;color:var(--sc-ice);}
+  .sc-prow b#hi-score-display{color:var(--sc-amber);text-shadow:0 0 10px rgba(245,166,35,.4);}
+  .sc-panel{display:none;}
+  .sc-panel.on{display:block;}
+  .sc-wrow{display:flex;align-items:center;gap:10px;padding:5px 0;border-top:1px solid rgba(215,230,245,.1);}
+  .sc-wrow i{width:10px;height:10px;flex:none;background:var(--pip);box-shadow:0 0 8px var(--pip);
+    clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);}
+  .sc-wrow div{flex:1;display:flex;flex-direction:column;line-height:1.25;}
+  .sc-wrow b{font-family:'Exo 2',sans-serif;font-size:12px;font-weight:600;letter-spacing:2px;color:var(--sc-ice);}
+  .sc-wrow small{font-size:9px;color:var(--sc-dim);font-family:'Rajdhani',sans-serif;letter-spacing:.5px;}
+  .sc-wrow em{font-family:'Exo 2',sans-serif;font-style:normal;font-size:13px;font-weight:600;color:var(--pip);}
+  .sc-brief-title{font-family:'Exo 2',sans-serif;font-size:17px;font-weight:600;letter-spacing:2px;
+    color:var(--sc-ice-hi);margin-bottom:6px;}
+  .sc-brief-body{font-family:'Rajdhani',sans-serif;font-size:12.5px;line-height:1.5;color:var(--sc-dim);margin-bottom:8px;}
+  .sc-tips{list-style:none;font-family:'Rajdhani',sans-serif;font-size:12px;line-height:1.5;color:var(--sc-dim);}
+  .sc-tips li{padding-left:14px;position:relative;margin-bottom:2px;}
+  .sc-tips li::before{content:'\25B8';position:absolute;left:0;color:var(--sc-teal);font-size:10px;}
+  .sc-chips{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .sc-chips div{padding:8px 10px;border-top:1px solid var(--sc-teal-dim);
+    background:linear-gradient(180deg,transparent,rgba(6,11,24,.8));
+    font-family:'Rajdhani',sans-serif;font-size:9.5px;letter-spacing:1px;color:var(--sc-dim);line-height:1.5;}
+  .sc-chips strong{display:block;font-family:'Exo 2',sans-serif;font-size:10px;letter-spacing:2px;color:var(--sc-ice);}
+  .sc-foot{grid-column:1/-1;grid-row:2;display:flex;align-items:center;gap:20px;
+    border-top:1px solid rgba(215,230,245,.16);padding-top:8px;
+    font-family:'Share Tech Mono',monospace;font-size:8.5px;letter-spacing:2px;color:var(--sc-micro);}
+  .sc-foot b{display:inline-block;border:1px solid rgba(215,230,245,.3);border-radius:2px;
+    padding:1px 6px;margin-right:6px;color:var(--sc-ice);font-weight:400;}
+  .sc-foot .sc-ver{margin-left:auto;color:var(--sc-teal);}
+  /* debrief: side-by-side actions */
+  .debrief-actions{display:flex;gap:10px;margin-top:2px;}
+  .debrief-actions .retry-btn{min-width:0;flex:1;padding:12px 10px;letter-spacing:3px;}
+  .sc-ghost-btn{flex:1;padding:12px 10px;border:1px solid var(--sc-teal-dim);border-radius:2px;
+    color:var(--sc-teal);background:rgba(87,199,212,.06);cursor:pointer;pointer-events:all;
+    font-family:'Exo 2',sans-serif;font-size:13px;font-weight:600;letter-spacing:3px;transition:all .15s;}
+  .sc-ghost-btn:hover{background:rgba(87,199,212,.16);}
+
 </style>
 </head>
 <body>
@@ -817,39 +903,57 @@
   <div style="position:relative">
     <canvas id="c" width="900" height="600"></canvas>
     <div id="overlay" class="lobby">
-      <div class="lobby-topbar">
-        <div class="lobby-brand">NEON BLASTER // ORBITAL COMMAND</div>
-        <div class="lobby-nav"><span>HANGAR</span><span>ARMORY</span><span>SECTOR MAP</span><span>RANKINGS</span></div>
-        <div class="lobby-account">PILOT // GUEST-999999</div>
+      <div class="sc-rail">
+        <div class="sc-eyebrow">ORBITAL COMMAND // SECTOR 07</div>
+        <h1 class="sc-title">NEON<br>BLASTER</h1>
+        <div class="sc-rule"></div>
+        <nav class="sc-menu">
+          <button class="sc-item sc-primary" onclick="startGame()"><small>DEPLOY</small><span>PLAY &#9654;</span></button>
+          <button class="sc-item is-active" data-panel="loadout" onclick="scPanel('loadout')"><small>ARMORY</small><span>LOADOUT</span></button>
+          <button class="sc-item" data-panel="brief" onclick="scPanel('brief')"><small>MISSION</small><span>BRIEFING</span></button>
+          <button class="sc-item" id="sc-sound" onclick="scToggleSound()"><small>AUDIO</small><span>SOUND: ON</span></button>
+        </nav>
+        <div class="sc-railfoot">VANGUARD INTERCEPTOR // MK-IV</div>
       </div>
-      <section class="lobby-chat">
-        <div class="chat-bubble"><small>PILOT-223</small>Sector is clear. Ready to deploy?</div>
-        <div class="chat-bubble"><small>COMMAND</small>Enemy fleet detected at the Mars gate.</div>
-        <div class="chat-bubble"><small>GUEST-999999</small>Launching now.</div>
-        <div class="chat-entry">▣ &nbsp; SQUAD CHANNEL <span>▶</span></div>
-      </section>
-      <section class="lobby-panel lobby-left">
-        <div class="panel-kicker">SELECTED MODE</div>
-        <div class="mission-name">DEATHMATCH</div>
-        <div class="mission-copy">Survive each orbital wave and upgrade your fighter systems.</div>
-        <button class="lobby-play" onclick="startGame()">PLAY ▶</button>
-        <div class="mission-actions"><button>JOIN SQUAD ▶</button><button>CREATE ▶</button></div>
-      </section>
-      <section class="lobby-showcase">
-        <div class="showcase-chip">VANGUARD INTERCEPTOR // MK-IV</div>
-        <div class="showcase-status">REACTOR ONLINE · FLIGHT SYSTEMS NOMINAL</div>
-      </section>
-      <section class="squad-links"><button>SQUAD LINK</button><button>ARMORY FEED</button><button>STAR MAP</button></section>
-      <section class="lobby-panel lobby-right">
-        <div class="loadout-heading">INTERCEPTOR LOADOUT</div>
-        <div class="weapon-preview"><span></span><i></i></div>
-        <div class="loadout-grid"><b>01</b><b>02</b><b>03</b><b>04</b><b>05</b><b>06</b></div>
-        <button class="ability-btn">ABILITIES</button>
-      </section>
-      <div class="lobby-bottom">
-        <div class="bottom-chip"><strong>MISSION TYPE</strong>ENDLESS DEFENSE</div>
-        <div class="bottom-chip"><strong id="hi-score-display">BEST // 000000</strong>DESTROY ENEMIES · COLLECT WEAPONS · SURVIVE</div>
-        <div class="bottom-chip"><strong>CONTROL</strong>ARROWS / WASD · SPACE TO FIRE</div>
+      <div class="sc-stage">
+        <div class="sc-status">REACTOR ONLINE &middot; FLIGHT SYSTEMS NOMINAL</div>
+      </div>
+      <div class="sc-side">
+        <section class="sc-card sc-pilot">
+          <div class="sc-kicker">PILOT RECORD</div>
+          <div class="sc-callsign">GUEST-999999</div>
+          <div class="sc-prow"><span>RANK</span><b id="sc-rank">ROOKIE</b></div>
+          <div class="sc-prow"><span>BEST</span><b id="hi-score-display">BEST // 000000</b></div>
+          <div class="sc-prow"><span>SHIP</span><b>VANGUARD MK-IV</b></div>
+        </section>
+        <section class="sc-card sc-panel on" id="sc-panel-loadout">
+          <div class="sc-kicker">INTERCEPTOR LOADOUT</div>
+          <div class="sc-wrow" style="--pip:#6fd3e7"><i></i><div><b>PULSE</b><small>Standard issue cannon.</small></div><em>&infin;</em></div>
+          <div class="sc-wrow" style="--pip:#f5a623"><i></i><div><b>SPREAD</b><small>Triple fan shot.</small></div><em>8</em></div>
+          <div class="sc-wrow" style="--pip:#d7e6f5"><i></i><div><b>THUNDER</b><small>Chaining arc lightning.</small></div><em>5</em></div>
+          <div class="sc-wrow" style="--pip:#a78bfa"><i></i><div><b>NOVA</b><small>Screen-clearing blast.</small></div><em>2</em></div>
+          <div class="sc-wrow" style="--pip:#ff7a45"><i></i><div><b>HOMING</b><small>Seeking missiles.</small></div><em>3</em></div>
+        </section>
+        <section class="sc-card sc-panel" id="sc-panel-brief">
+          <div class="sc-kicker">MISSION BRIEF</div>
+          <div class="sc-brief-title">ENDLESS DEFENSE</div>
+          <p class="sc-brief-body">Hold the line against endless waves. Destroyed enemies drop
+          weapon hexes &mdash; fly into one to collect it. A capital ship warps in every 5th wave.</p>
+          <ul class="sc-tips">
+            <li>NOVA clears the screen &mdash; save it for crowds.</li>
+            <li>THUNDER arcs between packed enemies.</li>
+            <li>HOMING never misses a live target.</li>
+          </ul>
+        </section>
+        <section class="sc-chips">
+          <div><strong>THREAT</strong>6 CLASSES &middot; BOSS / 5 WAVES</div>
+          <div><strong>CONTROL</strong>WASD &middot; SPACE &middot; 1&ndash;5 &middot; ESC</div>
+        </section>
+      </div>
+      <div class="sc-foot">
+        <span><b>SPACE</b> FIRE</span><span><b>1&ndash;5</b> WEAPONS</span>
+        <span><b>ESC</b> PAUSE</span><span><b>M</b> MUTE</span>
+        <span class="sc-ver">STAR COMMAND UI</span>
       </div>
     </div>
     <div id="level-announce"></div>
@@ -1882,7 +1986,10 @@ function gameOver(){
       <div class="overlay-score">${pad(score)}</div>
       ${isNewBest?'<div class="new-best">NEW PERSONAL BEST</div>':''}
       <div class="debrief-wave">WAVE ${pad(wave,2)} REACHED</div>
-      <button class="retry-btn" onclick="startGame()">REDEPLOY</button>
+      <div class="debrief-actions">
+        <button class="retry-btn" onclick="startGame()">REDEPLOY</button>
+        <button class="sc-ghost-btn" onclick="showMenu()">&#9664; MENU</button>
+      </div>
     </div>
   `;
   ov.classList.remove('hidden');
@@ -1938,12 +2045,43 @@ function rescale(){
 window.addEventListener('resize', rescale);
 rescale();
 
+// ── Star Command menu ─────────────────────────────────────
+const LOBBY_HTML = document.getElementById('overlay').innerHTML;
+function scRankFor(s){ return s>=15000?'LEGEND':s>=5000?'ACE':s>=1000?'PILOT':'ROOKIE'; }
+function scPaintRank(){
+  const r=document.getElementById('sc-rank'); if(!r) return;
+  r.textContent=scRankFor(getHiScore());
+  r.style.color=getHiScore()>=5000?'#f5a623':'#d7e6f5';
+}
+window.scPanel=function(name){
+  document.querySelectorAll('#overlay .sc-panel').forEach(p=>p.classList.remove('on'));
+  const p=document.getElementById('sc-panel-'+name); if(p) p.classList.add('on');
+  document.querySelectorAll('#overlay .sc-item[data-panel]').forEach(b=>
+    b.classList.toggle('is-active', b.getAttribute('data-panel')===name));
+};
+window.scToggleSound=function(){
+  audioEnabled=!audioEnabled; updateHUD();
+  const s=document.querySelector('#sc-sound span'); if(s) s.textContent=audioEnabled?'SOUND: ON':'SOUND: OFF';
+};
+window.showMenu=function(){
+  const ov=document.getElementById('overlay');
+  ov.innerHTML=LOBBY_HTML; ov.classList.add('lobby'); ov.classList.remove('hidden');
+  state='menu';
+  cancelAnimationFrame(animId); lastTime=performance.now(); animId=requestAnimationFrame(loop);
+  const hs=getHiScore(), hsEl=document.getElementById('hi-score-display');
+  if(hsEl) hsEl.textContent=hs>0?('\u2605 BEST  '+pad(hs)):'BEST // 000000';
+  scPaintRank();
+  const s=document.querySelector('#sc-sound span'); if(s) s.textContent=audioEnabled?'SOUND: ON':'SOUND: OFF';
+  updateHUD();
+};
+
 stars = initStars();
 lastTime = performance.now();
 animId = requestAnimationFrame(loop);
 const hs=getHiScore();
 const hsEl=document.getElementById('hi-score-display');
 if(hs>0&&hsEl){ hsEl.textContent=`★ BEST  ${pad(hs)}`; hsEl.classList.add('pop'); }
+scPaintRank();
 </script>
 </body>
 </html>
